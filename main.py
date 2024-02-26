@@ -8,10 +8,12 @@ import cv2
 import user_image_input
 
 FATOR_REDUCAO = 10
+IMAGE = "cidade.png"
 # LABIRINTO = "labirinto.webp"
 # LABIRINTO = "cars.png"
 # LABIRINTO = "grande_labirinto.png"
-LABIRINTO = "cidade.png"
+LABIRINTO = f"images/{IMAGE}"
+
 INVERT_COLOR_PATH = False # Boolean
 
 graph, matriz = image_to_graph.handle(image_path=LABIRINTO, fator_reducao=FATOR_REDUCAO, invert_color_path=INVERT_COLOR_PATH)
@@ -39,7 +41,7 @@ caminho_posicoes = [posicoes[no] for no in caminho]
 nx.draw_networkx_nodes(graph, pos=posicoes, nodelist=caminho, node_size=30, node_color='red')
 nx.draw_networkx_edges(graph, pos=posicoes, edgelist=list(zip(caminho, caminho[1:])), edge_color='red', width=1)
 
-plt.savefig(f"./out/dijkstra_{LABIRINTO}")
+plt.savefig(f"./out/dijkstra_{IMAGE}")
 plt.show()
 
 # TODO: Dar a opcao de além de selecionar ponto de origem, destino e pontos intermediarios?
